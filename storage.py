@@ -6,9 +6,20 @@
 
 import streamlit as st
 import pandas as pd
-# import plotly.express as px
 
-st.header('N期制の保管料のシミュレーション')
+st.set_page_config(
+    page_title="LogiGeek App", 
+    layout="wide")
+
+st.header('N期制保管料のシミュレーションアプリ')
+st.text('')
+st.subheader('このアプリでできること')
+st.text('倉庫保管料の単価設定には二期制（１５日単位）、三期制（１０日単位）、四期制（週単位）、日単位等があります。')
+st.text('このアプリは具体的な入庫／出庫データを基に、単価設定の違いにより一ヶ月の保管料がどれだけ異なってくるかをシミュレーションします。')
+st.text('詳細な使い方は下記のサイトを参照下さい↓')
+st.link_button(":blue[3期制保管料の計算方法。仕組みを理解すれば保管料を削減する方策がわかる。|ロジギーク]", 
+               "https://rikei-logistics.com/storage-cost-reduction")
+st.text('')
 
 st.sidebar.header('変数設定画面')
 st.sidebar.subheader('１．日々の入庫数変更')
@@ -47,6 +58,7 @@ ins = [in1, in2, in3, in4, in5, in6, in7, in8, in9, in10,
       in11, in12, in13, in14, in15, in16, in17, in18, in19, in20,
       in21, in22, in23, in24, in25, in26, in27, in28, in29, in30]
 
+st.sidebar.text('')
 st.sidebar.subheader('２．日々の出庫数変更')
 out0 = 0
 out1 = st.sidebar.number_input(label = '１日目', value = 950, label_visibility="visible")
@@ -83,6 +95,7 @@ outs = [out1, out2, out3, out4, out5, out6, out7, out8, out9, out10,
       out11, out12, out13, out14, out15, out16, out17, out18, out19, out20,
       out21, out22, out23, out24, out25, out26, out27, out28, out29, out30]
 
+st.sidebar.text('')
 st.sidebar.subheader('３．初期在庫数変更')
 st0 = st.sidebar.number_input(label = '初期在庫数', value = 5262, label_visibility="visible")
 
@@ -120,12 +133,14 @@ sts = [st0, st1, st2, st3, st4, st5, st6, st7, st8, st9,
       st10, st11, st12, st13, st14, st15, st16, st17, st18, st19,
       st20, st21, st22, st23, st24, st25, st26, st27, st28, st29]
 
+st.sidebar.text('')
 st.sidebar.subheader('４．保管料設定変更')
 charge_30 = st.sidebar.number_input(label = '１日当たりの保管料（円）', value = 30, label_visibility="visible")
 rate_2 = st.sidebar.number_input(label = '二期制の場合の保管料割引率（％）', value = 50, label_visibility="visible")
 rate_3 = st.sidebar.number_input(label = '三期制の場合の保管料割引率（％）', value = 30, label_visibility="visible")
 rate_4 = st.sidebar.number_input(label = '四期制の場合の保管料割引率（％）', value = 10, label_visibility="visible")
 
+st.text('')
 st.subheader('入出庫データ')
 list1=[[in0,out0,st0],
     [in1,out1,st1], [in2,out2,st2], [in3,out3,st3], [in4,out4,st4], [in5,out5,st5], 
@@ -168,10 +183,24 @@ fee_2 = f'{int((q_2_1 + q_2_2) * charge_30 * 15 * (100 - rate_2) / 100):,}'
 fee_3 = f'{int((q_3_1 + q_3_2 + q_3_3) * charge_30 * 10 * (100 - rate_3) / 100):,}'
 fee_4 = f'{int((q_4_1 + q_4_2 + q_4_3 + q_4_4) * charge_30 * 7 * (100 - rate_4) / 100 /28 * 30):,}'
 
+st.text('')
 st.subheader('一ヶ月の保管料の比較')
 list2 = [[fee_30, fee_2, fee_3, fee_4]]
 index2 = ['一ヶ月の保管料（円）']
 columns2 = ['日単位制', '二期制', '三期制', '四期制']
 df2 = pd.DataFrame(data=list2, index=index2, columns=columns2)
 st.table(df2)
+
+fee_30 = int(sum(q_30) * charge_30 * 100 / 100)
+fee_2 = int((q_2_1 + q_2_2) * charge_30 * 15 * (100 - rate_2) / 100)
+fee_3 = int((q_3_1 + q_3_2 + q_3_3) * charge_30 * 10 * (100 - rate_3) / 100)
+fee_4 = int((q_4_1 + q_4_2 + q_4_3 + q_4_4) * charge_30 * 7 * (100 - rate_4) / 100 /28 * 30)
+
+list3 = [[fee_30], [fee_2], [fee_3], [fee_4]]
+index2 = ['一ヶ月の保管料（円）']
+columns2 = ['日単位制', '二期制', '三期制', '四期制']
+df3 = pd.DataFrame(data=list3, index=columns2, columns=index2)
+
+st.text('')
+st.bar_chart(df3)
 
