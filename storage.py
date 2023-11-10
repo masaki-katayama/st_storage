@@ -17,87 +17,87 @@ st.subheader('このアプリでできること')
 st.text('倉庫保管料の単価設定には二期制（１５日単位）、三期制（１０日単位）、四期制（週単位）、日単位等があります。')
 st.text('このアプリは具体的な入庫／出庫データを基に、単価設定の違いにより一ヶ月の保管料がどれだけ異なってくるかをシミュレーションします。')
 st.text('詳細な使い方は下記のサイトを参照下さい↓')
-st.link_button(":blue[3期制保管料の計算方法。仕組みを理解すれば保管料を削減する方策がわかる。|ロジギーク]", 
-               "https://rikei-logistics.com/storage-cost-reduction")
+st.link_button(":blue[【物流担当者必見！】三期制の保管料はこんなに損。アプリで簡単シミュレーション|ロジギーク]", 
+               "https://rikei-logistics.com/app-storage1")
 st.text('')
 
-st.sidebar.header('変数設定画面')
-st.sidebar.subheader('１．日々の入庫数変更')
+st.sidebar.header('◆変数設定画面◆')
+st.sidebar.subheader('１．日々の入庫CBM変更')
 in0 = 0
 in1 = st.sidebar.number_input(label = '１日目', value = 0, label_visibility="visible")
 in2 = st.sidebar.number_input(label = '２日目', value = 0, label_visibility="visible")
 in3 = st.sidebar.number_input(label = '３日目', value = 0, label_visibility="visible")
-in4 = st.sidebar.number_input(label = '４日目', value = 6688, label_visibility="visible")
+in4 = st.sidebar.number_input(label = '４日目', value = 669, label_visibility="visible")
 in5 = st.sidebar.number_input(label = '５日目', value = 0, label_visibility="visible")
 in6 = st.sidebar.number_input(label = '６日目', value = 0, label_visibility="visible")
 in7 = st.sidebar.number_input(label = '７日目', value = 0, label_visibility="visible")
 in8 = st.sidebar.number_input(label = '８日目', value = 0, label_visibility="visible")
 in9 = st.sidebar.number_input(label = '９日目', value = 0, label_visibility="visible")
 in10 = st.sidebar.number_input(label = '１０日目', value = 0, label_visibility="visible")
-in11 = st.sidebar.number_input(label = '１１日目', value = 7725, label_visibility="visible")
+in11 = st.sidebar.number_input(label = '１１日目', value = 773, label_visibility="visible")
 in12 = st.sidebar.number_input(label = '１２日目', value = 0, label_visibility="visible")
 in13 = st.sidebar.number_input(label = '１３日目', value = 0, label_visibility="visible")
 in14 = st.sidebar.number_input(label = '１４日目', value = 0, label_visibility="visible")
 in15 = st.sidebar.number_input(label = '１５日目', value = 0, label_visibility="visible")
 in16 = st.sidebar.number_input(label = '１６日目', value = 0, label_visibility="visible")
-in17 = st.sidebar.number_input(label = '１７日目', value = 6781, label_visibility="visible")
+in17 = st.sidebar.number_input(label = '１７日目', value = 678, label_visibility="visible")
 in18 = st.sidebar.number_input(label = '１８日目', value = 0, label_visibility="visible")
 in19 = st.sidebar.number_input(label = '１９日目', value = 0, label_visibility="visible")
 in20 = st.sidebar.number_input(label = '２０日目', value = 0, label_visibility="visible")
 in21 = st.sidebar.number_input(label = '２１日目', value = 0, label_visibility="visible")
 in22 = st.sidebar.number_input(label = '２２日目', value = 0, label_visibility="visible")
 in23 = st.sidebar.number_input(label = '２３日目', value = 0, label_visibility="visible")
-in24 = st.sidebar.number_input(label = '２４日目', value = 7032, label_visibility="visible")
+in24 = st.sidebar.number_input(label = '２４日目', value = 703, label_visibility="visible")
 in25 = st.sidebar.number_input(label = '２５日目', value = 0, label_visibility="visible")
 in26 = st.sidebar.number_input(label = '２６日目', value = 0, label_visibility="visible")
 in27 = st.sidebar.number_input(label = '２７日目', value = 0, label_visibility="visible")
 in28 = st.sidebar.number_input(label = '２８日目', value = 0, label_visibility="visible")
 in29 = st.sidebar.number_input(label = '２９日目', value = 0, label_visibility="visible")
-in30 = st.sidebar.number_input(label = '３０日目', value = 7777, label_visibility="visible")
+in30 = st.sidebar.number_input(label = '３０日目', value = 778, label_visibility="visible")
 ins = [in1, in2, in3, in4, in5, in6, in7, in8, in9, in10,
       in11, in12, in13, in14, in15, in16, in17, in18, in19, in20,
       in21, in22, in23, in24, in25, in26, in27, in28, in29, in30]
 
 st.sidebar.text('')
-st.sidebar.subheader('２．日々の出庫数変更')
+st.sidebar.subheader('２．日々の出庫CBM変更')
 out0 = 0
-out1 = st.sidebar.number_input(label = '１日目', value = 950, label_visibility="visible")
-out2 = st.sidebar.number_input(label = '２日目', value = 160, label_visibility="visible")
-out3 = st.sidebar.number_input(label = '３日目', value = 355, label_visibility="visible")
-out4 = st.sidebar.number_input(label = '４日目', value = 1953, label_visibility="visible")
-out5 = st.sidebar.number_input(label = '５日目', value = 1697, label_visibility="visible")
-out6 = st.sidebar.number_input(label = '６日目', value = 1346, label_visibility="visible")
-out7 = st.sidebar.number_input(label = '７日目', value = 1264, label_visibility="visible")
-out8 = st.sidebar.number_input(label = '８日目', value = 400, label_visibility="visible")
-out9 = st.sidebar.number_input(label = '９日目', value = 127, label_visibility="visible")
-out10 = st.sidebar.number_input(label = '１０日目', value = 735, label_visibility="visible")
-out11 = st.sidebar.number_input(label = '１１日目', value = 2014, label_visibility="visible")
-out12 = st.sidebar.number_input(label = '１２日目', value = 1676, label_visibility="visible")
-out13 = st.sidebar.number_input(label = '１３日目', value = 1829, label_visibility="visible")
-out14 = st.sidebar.number_input(label = '１４日目', value = 1467, label_visibility="visible")
-out15 = st.sidebar.number_input(label = '１５日目', value = 370, label_visibility="visible")
-out16 = st.sidebar.number_input(label = '１６日目', value = 187, label_visibility="visible")
-out17 = st.sidebar.number_input(label = '１７日目', value = 1133, label_visibility="visible")
-out18 = st.sidebar.number_input(label = '１８日目', value = 1370, label_visibility="visible")
-out19 = st.sidebar.number_input(label = '１９日目', value = 1537, label_visibility="visible")
-out20 = st.sidebar.number_input(label = '２０日目', value = 968, label_visibility="visible")
-out21 = st.sidebar.number_input(label = '２１日目', value = 1770, label_visibility="visible")
-out22 = st.sidebar.number_input(label = '２２日目', value = 1295, label_visibility="visible")
-out23 = st.sidebar.number_input(label = '２３日目', value = 350, label_visibility="visible")
-out24 = st.sidebar.number_input(label = '２４日目', value = 967, label_visibility="visible")
-out25 = st.sidebar.number_input(label = '２５日目', value = 2070, label_visibility="visible")
-out26 = st.sidebar.number_input(label = '２６日目', value = 1325, label_visibility="visible")
-out27 = st.sidebar.number_input(label = '２７日目', value = 1303, label_visibility="visible")
-out28 = st.sidebar.number_input(label = '２８日目', value = 1342, label_visibility="visible")
-out29 = st.sidebar.number_input(label = '２９日目', value = 1008, label_visibility="visible")
-out30 = st.sidebar.number_input(label = '３０日目', value = 237, label_visibility="visible")
+out1 = st.sidebar.number_input(label = '１日目', value = 95, label_visibility="visible")
+out2 = st.sidebar.number_input(label = '２日目', value = 16, label_visibility="visible")
+out3 = st.sidebar.number_input(label = '３日目', value = 36, label_visibility="visible")
+out4 = st.sidebar.number_input(label = '４日目', value = 195, label_visibility="visible")
+out5 = st.sidebar.number_input(label = '５日目', value = 170, label_visibility="visible")
+out6 = st.sidebar.number_input(label = '６日目', value = 135, label_visibility="visible")
+out7 = st.sidebar.number_input(label = '７日目', value = 126, label_visibility="visible")
+out8 = st.sidebar.number_input(label = '８日目', value = 40, label_visibility="visible")
+out9 = st.sidebar.number_input(label = '９日目', value = 13, label_visibility="visible")
+out10 = st.sidebar.number_input(label = '１０日目', value = 74, label_visibility="visible")
+out11 = st.sidebar.number_input(label = '１１日目', value = 201, label_visibility="visible")
+out12 = st.sidebar.number_input(label = '１２日目', value = 168, label_visibility="visible")
+out13 = st.sidebar.number_input(label = '１３日目', value = 183, label_visibility="visible")
+out14 = st.sidebar.number_input(label = '１４日目', value = 147, label_visibility="visible")
+out15 = st.sidebar.number_input(label = '１５日目', value = 37, label_visibility="visible")
+out16 = st.sidebar.number_input(label = '１６日目', value = 19, label_visibility="visible")
+out17 = st.sidebar.number_input(label = '１７日目', value = 113, label_visibility="visible")
+out18 = st.sidebar.number_input(label = '１８日目', value = 137, label_visibility="visible")
+out19 = st.sidebar.number_input(label = '１９日目', value = 154, label_visibility="visible")
+out20 = st.sidebar.number_input(label = '２０日目', value = 97, label_visibility="visible")
+out21 = st.sidebar.number_input(label = '２１日目', value = 177, label_visibility="visible")
+out22 = st.sidebar.number_input(label = '２２日目', value = 130, label_visibility="visible")
+out23 = st.sidebar.number_input(label = '２３日目', value = 35, label_visibility="visible")
+out24 = st.sidebar.number_input(label = '２４日目', value = 97, label_visibility="visible")
+out25 = st.sidebar.number_input(label = '２５日目', value = 207, label_visibility="visible")
+out26 = st.sidebar.number_input(label = '２６日目', value = 133, label_visibility="visible")
+out27 = st.sidebar.number_input(label = '２７日目', value = 130, label_visibility="visible")
+out28 = st.sidebar.number_input(label = '２８日目', value = 134, label_visibility="visible")
+out29 = st.sidebar.number_input(label = '２９日目', value = 101, label_visibility="visible")
+out30 = st.sidebar.number_input(label = '３０日目', value = 24, label_visibility="visible")
 outs = [out1, out2, out3, out4, out5, out6, out7, out8, out9, out10,
       out11, out12, out13, out14, out15, out16, out17, out18, out19, out20,
       out21, out22, out23, out24, out25, out26, out27, out28, out29, out30]
 
 st.sidebar.text('')
-st.sidebar.subheader('３．初期在庫数変更')
-st0 = st.sidebar.number_input(label = '初期在庫数', value = 5262, label_visibility="visible")
+st.sidebar.subheader('３．初期在庫CBM変更')
+st0 = st.sidebar.number_input(label = '初期在庫CBM', value = 500, label_visibility="visible")
 
 st1 = st0 + in1 - out1
 st2 = st1 + in2 - out2
@@ -135,10 +135,10 @@ sts = [st0, st1, st2, st3, st4, st5, st6, st7, st8, st9,
 
 st.sidebar.text('')
 st.sidebar.subheader('４．保管料設定変更')
-charge_30 = st.sidebar.number_input(label = '１日当たりの保管料（円）', value = 30, label_visibility="visible")
-rate_2 = st.sidebar.number_input(label = '二期制の場合の保管料割引率（％）', value = 50, label_visibility="visible")
-rate_3 = st.sidebar.number_input(label = '三期制の場合の保管料割引率（％）', value = 30, label_visibility="visible")
-rate_4 = st.sidebar.number_input(label = '四期制の場合の保管料割引率（％）', value = 10, label_visibility="visible")
+charge_30 = st.sidebar.number_input(label = '１日当たりの保管料（円/CBM･日）', value = 30, label_visibility="visible")
+rate_2 = st.sidebar.number_input(label = '二期制の場合の保管料割引率（％）', value = 0, label_visibility="visible")
+rate_3 = st.sidebar.number_input(label = '三期制の場合の保管料割引率（％）', value = 0, label_visibility="visible")
+rate_4 = st.sidebar.number_input(label = '四期制の場合の保管料割引率（％）', value = 0, label_visibility="visible")
 
 st.text('')
 st.subheader('入出庫データ')
@@ -153,7 +153,7 @@ index1 = ["０日目（初期値）",
         "１日目", "２日目", "３日目", "４日目", "５日目", "６日目", "７日目", "８日目", "９日目", "１０日目", 
           "１１日目", "１２日目", "１３日目", "１４日目", "１５日目", "１６日目", "１７日目", "１８日目", "１９日目", "２０日目", 
           "２１日目", "２２日目", "２３日目", "２４日目", "２５日目", "２６日目", "２７日目", "２８日目", "２９日目", "３０日目"]
-columns1 =["入庫数", "出庫数", "在庫数"]
+columns1 =["入庫CBM", "出庫CBM", "在庫CBM"]
 df = pd.DataFrame(data=list1, index=index1, columns=columns1)
 st.table(df)
 
@@ -183,22 +183,22 @@ fee_2 = f'{int((q_2_1 + q_2_2) * charge_30 * 15 * (100 - rate_2) / 100):,}'
 fee_3 = f'{int((q_3_1 + q_3_2 + q_3_3) * charge_30 * 10 * (100 - rate_3) / 100):,}'
 fee_4 = f'{int((q_4_1 + q_4_2 + q_4_3 + q_4_4) * charge_30 * 7 * (100 - rate_4) / 100 /28 * 30):,}'
 
+fee_30_int = int(sum(q_30) * charge_30 * 100 / 100)
+fee_2_int = int((q_2_1 + q_2_2) * charge_30 * 15 * (100 - rate_2) / 100)
+fee_3_int = int((q_3_1 + q_3_2 + q_3_3) * charge_30 * 10 * (100 - rate_3) / 100)
+fee_4_int = int((q_4_1 + q_4_2 + q_4_3 + q_4_4) * charge_30 * 7 * (100 - rate_4) / 100 /28 * 30)
+
 st.text('')
 st.subheader('一ヶ月の保管料の比較')
-list2 = [[fee_30, fee_2, fee_3, fee_4]]
-index2 = ['一ヶ月の保管料（円）']
+list2 = [[fee_30, fee_2, fee_3, fee_4], [1, round(fee_2_int/fee_30_int,2), round(fee_3_int/fee_30_int,2), round(fee_4_int/fee_30_int,2)]]
+index2 = ['一ヶ月の保管料（円）', '日単位制に対する比率']
 columns2 = ['日単位制', '二期制', '三期制', '四期制']
 df2 = pd.DataFrame(data=list2, index=index2, columns=columns2)
 st.table(df2)
 
-fee_30 = int(sum(q_30) * charge_30 * 100 / 100)
-fee_2 = int((q_2_1 + q_2_2) * charge_30 * 15 * (100 - rate_2) / 100)
-fee_3 = int((q_3_1 + q_3_2 + q_3_3) * charge_30 * 10 * (100 - rate_3) / 100)
-fee_4 = int((q_4_1 + q_4_2 + q_4_3 + q_4_4) * charge_30 * 7 * (100 - rate_4) / 100 /28 * 30)
-
-list3 = [[fee_30], [fee_2], [fee_3], [fee_4]]
+list3 = [[fee_30_int], [fee_2_int], [fee_3_int], [fee_4_int]]
 index2 = ['一ヶ月の保管料（円）']
-columns2 = ['日単位制', '二期制', '三期制', '四期制']
+columns2 = ['1) 日単位制', '2) 二期制', '3) 三期制', '4) 四期制']
 df3 = pd.DataFrame(data=list3, index=columns2, columns=index2)
 
 st.text('')
