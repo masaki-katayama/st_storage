@@ -6,9 +6,12 @@
 
 import streamlit as st
 import pandas as pd
+from PIL import Image
 
+image = Image.open('logo-short.png')
 st.set_page_config(
-    page_title="LogiGeek App", 
+    page_title="Storage_Fee|LogiGeek", 
+    page_icon=image,
     layout="wide")
 
 st.header('N期制保管料のシミュレーションアプリ')
