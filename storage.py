@@ -8,11 +8,14 @@ import streamlit as st
 import pandas as pd
 from PIL import Image
 
-image = Image.open('logo-short.png')
+image1 = Image.open('logigeek-logo-short.png')
 st.set_page_config(
-    page_title="Storage_Fee|LogiGeek", 
-    page_icon=image,
+    page_title="INV_Simulation01|LogiGeek", 
+    page_icon=image1,
     layout="wide")
+
+image2 = Image.open('logigeek-logo-long.png')
+st.image(image2, caption='ロジスティクスをDXするための小ネタ集')
 
 st.header('N期制保管料のシミュレーションアプリ')
 st.text('')
